@@ -38,7 +38,7 @@
   </div>
 </body>
 <script>
-  fetch('https://raw.githubusercontent.com/Tin-Tinnaphat/MukPakPak/master/README.md')
+  fetch('https://raw.githubusercontent.com/Tin-Tinnaphat/MukPakPak/main/README.md')
     .then(res => res.text())
     .then(data => {
       const filter = data.split('\n').filter(line => /(?:^- (.*\?) (.*))/.test(line));
