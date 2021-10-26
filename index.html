@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>มุกแป๊ก ๆ</title>
+  <meta name="description" content="มุกแป๊ก ๆ ที่เพื่อนของคุณยังจะเล่น...">
+  <meta property="og:title" content="มุกแป๊ก ๆ" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mukpakpak.tinnaphat.xyz/" />
+  <meta property="og:image" content="https://ia.media-imdb.com/images/rock.jpg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.17/tailwind.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@500&display=swap');
+
+    .font-sarabun {
+      font-family: 'Sarabun', sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid h-screen place-items-center">
+    <div class="text-center max-w-lg">
+      <div class="relative">
+        <h1 id="mukTitle" class="text-3xl leading-normal font-sarabun">
+          มุกแป๊ก ๆ
+        </h1>
+        <p id="mukDes" class="text-md font-sarabun mt-4">
+          มุกแป๊ก ๆ ที่เพื่อนของคุณยังจะเล่น...
+        </p>
+
+        <button id="random" class="py-2 px-4 text-white font-sarabun border border-black bg-blue-500 rounded-lg shadow-lg m-4 transition duration-200 ease-in-out hover:bg-blue-700">
+          สุ่มมุกใหม่
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  fetch('https://raw.githubusercontent.com/Tin-Tinnaphat/MukPakPak/main/README.md')
+    .then(res => res.text())
+    .then(data => {
+      const filter = data.split('\n').filter(line => /(?:^- (.*\?) (.*))/.test(line));
+      document.querySelector('#random').addEventListener('click', () => {
+        let match = filter[Math.floor(Math.random() * filter.length)].match(/(?:^- (.*\?) (.*))/)
+        document.querySelector('#mukTitle').innerHTML = match[1]
+        document.querySelector('#mukDes').innerHTML = match[2]
+      })
+    })
+</script>
+</html>

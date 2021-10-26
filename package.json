@@ -1,0 +1,13 @@
+{
+  "name": "mukpakpak",
+  "version": "1.0.0",
+  "description": "มุขแป๊ก ๆ ที่เพื่อนคุณยังจะเอามาเล่น...",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx serve"
+  },
+  "author": "Tinnaphat Somsang",
+  "dependencies": {
+    "serve": "^12.0.1"
+  }
+}
