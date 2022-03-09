@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital@1&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: 'Kanit', sans-serif;
+}
+
+.share-button {
+  @apply rounded-full w-10 h-10 shadow-lg;
+}
