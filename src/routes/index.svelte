@@ -1,15 +1,18 @@
 <script>
-  export let muk = {question: 'Loading...', answer: ''};
-   
-   export let random = async() => {
-     fetch('https://raw.githubusercontent.com/tinvv/MukPakPak/main/README.md').then(res => res.text()).then(data => {
-       let filterMuk = data.split('\n').filter(line => /(?:^- (.*\?) (.*))/.test(line));
-       let randomNum = Math.floor(Math.random() * filterMuk.length);
-       let randomMuk = filterMuk[randomNum].match( /(?:^- (.*\?) (.*))/);
-       muk.question = randomMuk[1];
-       muk.answer = randomMuk[2];
-     });
-   }
+  import { fly } from 'svelte/transition';
+
+  let muk = { question: 'Loading...', answer: '' };
+  let isAnswer = false;
+
+  export let random = async() => {
+    fetch('https://raw.githubusercontent.com/tinvv/MukPakPak/main/README.md').then(res => res.text()).then(data => {
+      let filterMuk = data.split('\n').filter(line => /(^- (.*\?) (.*))/.test(line));
+      let randomNum = Math.floor(Math.random() * filterMuk.length);
+      let [_, question, answer] = filterMuk[randomNum].match( /(?:^- (.*\?) (.*))/);
+      muk.question = question;
+      muk.answer = answer;
+    });
+  }
     
     random()
 </script>
@@ -26,13 +29,18 @@
                   {muk['question'] || 'Loading...'}
                 </p>
               </span>
-              <p class="text-black mt-8">
-                {muk['answer'] || ''}
-              </p>
+              {#if isAnswer}
+                <p class="text-black mt-8" transition:fly={{ y: -20, duration: 200 }}>
+                  {muk['answer'] || ''}
+                </p>
+              {/if}
             </div>
             <center class="basis-full">
-                <button on:click={() => random()} class="bg-blue-500 text-white px-4 py-2 rounded-lg max-w-sm mt-8 hover:bg-blue-600 active:scale-90 duration-200">
-                    Random
+                <button on:click={() => { random(); isAnswer = false; }} class="bg-blue-500 text-white px-4 py-2 rounded-lg max-w-sm mt-8 hover:bg-blue-600 active:scale-90 duration-200">
+                    สุ่มเพิ่ม
+                </button>
+                <button on:click={() => isAnswer = !isAnswer} class="bg-gray-400 text-white px-4 py-2 rounded-lg max-w-sm mt-8 hover:bg-gray-500 active:scale-90 duration-200">
+                  {isAnswer ? "ดู" : "ซ่อน"}คำตอบ
                 </button>
             </center>
         </div>

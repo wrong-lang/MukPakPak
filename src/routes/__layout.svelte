@@ -7,5 +7,5 @@
 
 <Head />
 <slot />
-<Kofi name="tinvv" />
+<Kofi name="tinarskii" />
 <SocialButton />
