@@ -40,7 +40,7 @@
                     สุ่มเพิ่ม
                 </button>
                 <button on:click={() => isAnswer = !isAnswer} class="bg-gray-400 text-white px-4 py-2 rounded-lg max-w-sm mt-8 hover:bg-gray-500 active:scale-90 duration-200">
-                  {isAnswer ? "ดู" : "ซ่อน"}คำตอบ
+                  {!isAnswer ? "ดู" : "ซ่อน"}คำตอบ
                 </button>
             </center>
         </div>
