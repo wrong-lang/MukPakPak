@@ -1,41 +1,25 @@
-<div>
-  <p align="center">
-    <img src="/public/logo.png" width="150px"  alt="logo"/>
-    <h1 align="center">Hardtail</h1>
-    <p align="center">
-      Template for building SolidJS web application with Tailwind CSS faster!
-    </p>
-  </p>
-</div>
+# MukPakPak
+มุขแป๊ก ๆ ที่เพื่อนคุณยังจะเอามาเล่น...
 
-# Setup
+# Lists
+- มีเด็กอยู่คนนึงเล่นบาสอยู่เล่นจนค่ำแม่ก็มารับ ทำไมเด็กคนนั้นจึงโยนลูกบาสใส่หน้าแม่? (เพราะแม่เป็นห่วง)
+- เกาะอะไรมีแต่คนมอง? (เกาะอกหลุด)
+- ซุปอะไรมีสารอาหารมากที่สุด? (ซุปเปอร์มาร์เกต)
+- ทำไมคำว่า Coca-Cola ถึงต้องใช้ซีตัวใหญ่? (ถ้าเป็นซีเล็กก็กลายเป็นปลาทูน่าอ่ะเด่ะ)
+- เล่าปี่ มีลูกอยู่สองคน ชื่อ เล่าเก่า กับ เล่าใหม่ เล่าเก่าไปรบแล้วตาย ทีนี้เล่าปี่จะให้ใครสืบสกุล? (เล่าใหม่)
+- มดอะไรเอ่ยใหญ่กว่ามดเอ็กซ์? (มดเอ็กซ์แอล)
+- กินไส้กรอกอะไร เสื้อผ้าสะอาด? (ชีสไบท์ ใช้บรีส)
+- อะไรใหญ่กว่าปลาวาฬ (ปลาวาฬชุบแป้งทอด)
+- คนแก่เรียกคนชรา คนอ้วนเรียกคนเจ้าเนื้อ แล้วคนตายเรียกอะไร? (เรียกตำรวจ)
+- จังหวัดอะไรน่ารักที่สุด? (เลย (เลยจุงบั๊ก รักจุงเบย))
+- ปากอะไรทำให้คนโกรธ? (ปางโป้ง)
+- อะไรเอ่ยเป็นแท่งๆมีนมมีไข่? (โรตี)
+- ชมรมดนตรีกลัวอะไร? (ชมรมจิ๊กซอ เพราะเอาซอไปเครื่องดนตรีก็ไม่ครบดิ)
+- คืนก่อนครับ ทำไมครับ คืนเงินที่ยืมกูก่อน (ท่ดๆ กูลืม)
+- อะไรใหญ่กว่าปารีส ไม่มี!! กระทะทอดปารีส
+- รู้ป่ะใครเป็นพี่ของจิ๋นซีฮ่องเต้ (ง่ายๆ จิ๋นเอ และจิ๋นบี)
+- ต้นไม้อะไรลื่น? (วัชพรืดดด)
+- จังหวัดคุณ มีอะไรขึ้นหน้าขึ้นตา ? (สิวครับ)
+- หวานเป็นลม แล้วขมเป็นอะไร? (ขมต้องพาไปส่งโรงพยาบาล)
 
-First you could clone or fork this project or repository to your local machine.
-By using `git` or `degit` commands
-
-Git: `git clone https://github.com/thevvx/hardtail.git`  
-Degit: `degit tihevvx/hardtail`
-
-Then you need to install all required dependencies with pnpm (preferred) or yarn.
-By running `pnpm install` or `yarn` you will get all required dependencies.
-
-After that you could run `pnpm dev` or `yarn dev` to start the development server.
-
-# What's included
-
-- [SolidJS](https://solidjs.com/) that is built with [Vite](https://vitejs.org/)
-- [Tailwind CSS v3](https://tailwindcss.com/)
-- [Ko-Fi Buttons](https://ko-fi.com/)
-- [Font Awesome](https://fontawesome.com/)
-- [Google Fonts](https://fonts.google.com/)
-
-# Features
-
-- [ ] A dark mode theme support
-- [x] A basic modal component
-- [ ] Customizable error page
-- [x] Responsive design out of the box
-- [x] LocalStorage support
-- [ ] Cool modal transitions
-- [ ] Testing library
-- [x] Prettier and ESLint support
+<!-- Format : คำถาม? (คำตอบ) -->
