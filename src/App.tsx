@@ -1,51 +1,60 @@
 import type { Component } from "solid-js";
-import { state, setState } from "./lib/store";
-import { Modal } from "./components/Modal";
-
-const title = "HardTail";
-const description =
-  "Template for building SolidJS web application with Tailwind CSS faster!";
+import { createStore } from "solid-js/store";
+import { onMount } from "solid-js";
 
 const App: Component = () => {
+  const [quote, setQuote] = createStore({ text: "", answer: "", isShown: false });
+  const random = () => {
+    fetch('https://raw.githubusercontent.com/tinarskii/MukPakPak/main/README.md').then(res => res.text()).then(data => {
+      let filterMuk = data.split('\n').filter(line => /(^- (.*\?) (.*))/.test(line));
+      let randomNum = Math.floor(Math.random() * filterMuk.length);
+      let [_, question, answer] = filterMuk[randomNum].match( /(?:^- (.*\?) (.*))/);
+      if (quote.text === question) random();
+      if (question && answer) {
+        setQuote({ text: question, answer: answer, isShown: false });
+      }
+    });
+  }
+  onMount(random);
   return (
-    <div class="grid min-h-screen place-items-center">
-      <Show when={state.modal}>
-        <Modal onClose={() => setState({ ...state, modal: !state.modal })} />
-      </Show>
-
-      <div class="flex flex-col gap-8 items-center justify-center">
-        <img src="/logo.png" alt="logo" width={'300vw'} />
-        <h1 class="text-6xl hover:border-b-4 border-blue-700 duration-200">
-          <span class="text-blue-700 font-black">Hard</span>
-          Tail
-        </h1>
-        <div class="flex flex-col gap-4 items-center justify-center">
-          <p class="text-lg font-bold">
-            Amount of Clicks: {state.click}
-          </p>
-          <div class="flex flex-row gap-2">
-            <button
-              class="px-4 py-2 bg-blue-700 hover:bg-transparent border-2 border-blue-700 hover:text-blue-700 rounded-lg text-white uppercase active:scale-[95%] duration-200"
-              onClick={() => setState({ ...state, click: state.click + 1 })}
-            >
-              Click Me!
-            </button>
-            <button
-              class="px-4 py-2 hover:bg-blue-700 bg-transparent border-2 border-blue-700 text-blue-700 rounded-lg hover:text-white uppercase active:scale-[95%] duration-200"
-              onClick={() => setState({ ...state, click: 0 })}
-            >
-              Reset Click
-            </button>
-            <button
-              class="px-4 py-2 bg-blue-700 hover:bg-transparent border-2 border-blue-700 hover:text-blue-700 rounded-lg text-white uppercase active:scale-[95%] duration-200"
-              onClick={() => setState({ ...state, modal: !state.modal })}
-            >
-              Open Modal
-            </button>
+    <>
+      <div class="grid h-screen place-items-center">
+        <div>
+          <div class="flex flex-col justify-center gap-6">
+            <p class="md:text-8xl text-6xl m-4 text-center font-bold animate-bounce">
+              มุกแป๊กแป๊ก
+            </p>
+            <div class="text-3xl text-center animate-pop container max-w-3xl">
+                      <span
+                        class="before:block before:absolute before:-inset-4 before:bg-blue-500 before:-skew-y-2 before:rounded-lg relative inline-block">
+                          <p class="relative text-white">
+                              {quote.text || "Loading..."}
+                          </p>
+                      </span>
+              <p class="text-black mt-8">
+                {quote.isShown ? quote.answer : "..."}
+              </p>
+            </div>
+            <div class={"flex flex-row gap-2 justify-center items-center"}>
+              <button onClick={() => random()}
+                      class="bg-blue-500 text-white px-4 py-2 rounded-lg max-w-sm mt-8 hover:bg-blue-600 active:scale-90 duration-200">
+                สุ่มใหม่
+              </button>
+              <button onClick={() => setQuote({ ...quote, isShown: !quote.isShown })}
+                      class="bg-neutral-400 text-white px-4 py-2 rounded-lg max-w-sm mt-8 hover:bg-neutral-500 active:scale-90 duration-200">
+                {quote.isShown ? "ซ่อนคำตอบ" : "แสดงคำตอบ"}
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <div class="absolute top-0 left-0 p-2 text-gray-500">
+        By <a href="https://github.com/tinarskii">Tinnaphat Somsang (@tinarskii)</a>
+      </div>
+      <div class="absolute top-0 right-0 p-2 text-gray-500">
+        <a href="https://github.com/tinarskii/awesolid-quotes">Github</a>
+      </div>
+    </>
   );
 };
 

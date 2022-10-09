@@ -1,13 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Asap&family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital@1&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Asap', sans-serif;
-}
-
-p, span, a, input, button, textarea {
-  font-family: 'Nunito', sans-serif;
+* {
+    font-family: 'Kanit', sans-serif;
 }
