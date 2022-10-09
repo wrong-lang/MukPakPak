@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Sveltekit-TailwindCSS-template.iml" filepath="$PROJECT_DIR$/.idea/Sveltekit-TailwindCSS-template.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/HardTail.iml" filepath="$PROJECT_DIR$/.idea/HardTail.iml" />
     </modules>
   </component>
 </project>
