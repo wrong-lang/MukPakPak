@@ -6,9 +6,9 @@ const App: Component = () => {
   const [quote, setQuote] = createStore({ text: "", answer: "", isShown: false });
   const random = () => {
     fetch('https://raw.githubusercontent.com/tinarskii/MukPakPak/main/README.md').then(res => res.text()).then(data => {
-      let filterMuk = data.split('\n').filter(line => /(^- (.*\?) \(.*\))/.test(line));
+      let filterMuk = data.split('\n').filter(line => /(^- (.*\?) (.*))/.test(line));
       let randomNum = Math.floor(Math.random() * filterMuk.length);
-      let [_, question, answer] = filterMuk[randomNum].match( /(?:^- (.*\?) \(.*\))/);
+      let [_, question, answer] = filterMuk[randomNum].match( /(?:^- (.*\?) (.*))/);
       if (quote.text === question) random();
       if (question && answer) {
         setQuote({ text: question, answer: answer, isShown: false });
